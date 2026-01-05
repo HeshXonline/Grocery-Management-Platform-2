@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Grocery Management</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Grocery Management System</div>
+        <div class="nav-links">
+            <a href="/" class="active">Dashboard</a>
+            <a href="/billing.html">Billing</a>
+            <a href="/products.html">Products</a>
+            <a href="/reports.html">Reports</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Dashboard</h1>
+        <p class="subtitle">Today's Performance</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Daily Transactions</div>
+                <div class="stat-value" id="dailyTransactions">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Daily Revenue</div>
+                <div class="stat-value" id="dailyRevenue">Rs. 0.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Daily Profit</div>
+                <div class="stat-value" id="dailyProfit">Rs. 0.00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Today's Transactions</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Time</th>
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsTableBody">
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Grocery Management</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Grocery Management System</div>
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/billing.html">Billing</a>
+            <a href="/products.html">Products</a>
+            <a href="/reports.html" class="active">Reports</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Reports</h1>
+        <p class="subtitle">All-time business metrics and stock levels</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Stock Value (Cost)</div>
+                <div class="stat-value" id="totalStockCost">Rs. 0.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Expected Revenue (If All Sold)</div>
+                <div class="stat-value" id="expectedRevenue">Rs. 0.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Expected Profit (If All Sold)</div>
+                <div class="stat-value" id="expectedProfit">Rs. 0.00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Current Stock Levels</h2>
+            <div class="search-box">
+                <input type="text" id="stockSearch" placeholder="Search products...">
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Stock Quantity</th>
+                            <th>Buying Price</th>
+                            <th>Selling Price</th>
+                            <th>Stock Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center;">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/reports.js"></script>
+</body>
+</html>
