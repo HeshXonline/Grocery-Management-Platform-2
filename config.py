@@ -6,9 +6,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://root:password@localhost:3306/grocery_db")
+# Get DATABASE_URL from environment or use SQLite by default
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./grocery.db")
 
-engine = create_engine(DATABASE_URL, echo=False)
+# Configure engine based on database type
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(DATABASE_URL, echo=False)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

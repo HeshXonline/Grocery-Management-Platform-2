@@ -4,7 +4,7 @@ A complete local web application for managing a small grocery shop's inventory, 
 
 ## Tech Stack
 - **Backend**: Python FastAPI + SQLAlchemy
-- **Database**: MySQL
+- **Database**: SQLite (default) or MySQL
 - **Frontend**: HTML + CSS + JavaScript (Vanilla)
 
 ## Features
@@ -12,54 +12,68 @@ A complete local web application for managing a small grocery shop's inventory, 
 - Point of sale / Billing system
 - Live daily business metrics
 - Comprehensive reports (revenue, profit, stock)
+- Add, edit, delete products
+- Stock-based profit forecasting
 
-## Setup Instructions
+## Quick Start (Local Development)
 
 ### 1. Prerequisites
 - Python 3.8+
-- MySQL Server installed and running
 - pip (Python package manager)
 
-### 2. Database Setup
-
-Create the MySQL database:
-```sql
-CREATE DATABASE grocery_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-### 3. Configure Database Connection
-
-Copy `.env.example` to `.env`:
-```bash
-copy .env.example .env
-```
-
-Edit `.env` and update with your MySQL credentials:
-```
-DATABASE_URL=mysql+pymysql://root:YOUR_PASSWORD@localhost:3306/grocery_db
-```
-
-### 4. Install Python Dependencies
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Initialize Database Tables
+### 3. Set Up Database
+
+The application uses SQLite by default (no installation needed).
+
+**Option A: SQLite (Default - Recommended)**
 ```bash
+# Database will be created automatically as grocery.db
 python init_db.py
 ```
 
-### 6. (Optional) Load Sample Data
+**Option B: MySQL (Optional)**
+```bash
+# First, create MySQL database:
+# CREATE DATABASE grocery_db;
+
+# Then update .env file:
+DATABASE_URL=mysql+pymysql://root:password@localhost:3306/grocery_db
+
+# Run initialization:
+python init_db.py
+```
+
+### 4. Load Sample Data (Optional)
 ```bash
 python sample_data.py
 ```
 
-### 7. Start the Application
+### 5. Start the Application
 ```bash
-python main.py
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The application will start at: **http://localhost:8000**
+
+## 🌐 Cloud Deployment
+
+### PythonAnywhere (Free Hosting)
+
+See **[DEPLOYMENT.md](DEPLOYMENT.md)** for complete step-by-step instructions.
+
+**Quick Steps:**
+1. Clone repository on PythonAnywhere
+2. Run `bash setup_pythonanywhere.sh`
+3. Configure WSGI file
+4. Set up static files mapping
+5. Reload web app
+
+Your app will be live at: `https://YOUR_USERNAME.pythonanywhere.com`
 
 ## Application Pages
 

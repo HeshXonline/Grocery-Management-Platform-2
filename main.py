@@ -382,10 +382,5 @@ def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "message": "Grocery Management System is running"}
 
-# ==================== Run Server ====================
-
-if __name__ == "__main__":
-    print("Starting Grocery Management System...")
-    print("Server running at: http://localhost:8000")
-    print("API Documentation: http://localhost:8000/docs")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# Note: For local development, run with: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+# For production: uvicorn main:app --host 0.0.0.0 --port 8000
